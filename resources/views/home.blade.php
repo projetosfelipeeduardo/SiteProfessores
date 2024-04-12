@@ -11,7 +11,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <p class="mb-0">You are logged in!</p>
+                    <h1 class="m-0 text-dark">HMSI - Sistema Hospitalar</h1>
                 </div>
             </div>
         </div>

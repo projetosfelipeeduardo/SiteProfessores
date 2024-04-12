@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Site Professores',
+    'title' => 'Sistema Hospitalar 1.0',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<p>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Sistema</b> Hospitalar',
+    'logo_img' => 'vendor/adminlte/dist/img/hospital-solid.svg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -157,7 +157,7 @@ return [
     'layout_fixed_sidebar' => null,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
-    'layout_dark_mode' => true,
+    'layout_dark_mode' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -295,15 +295,15 @@ return [
 
     'menu' => [
         // Navbar items:
-        // [
-        //     'type' => 'navbar-search',
-        //     'text' => 'search',
-        //     'topnav_right' => false,
-        // ],
-        // [
-        //     'type' => 'fullscreen-widget',
-        //     'topnav_right' => true,
-        // ],
+        [
+            'type' => 'navbar-search',
+            'text' => 'search',
+            'topnav_right' => true,
+        ],
+        [
+            'type' => 'fullscreen-widget',
+            'topnav_right' => true,
+        ],
 
         // Sidebar items:
         [
@@ -311,61 +311,59 @@ return [
             'text' => 'search',
         ],
         [
-            'text' => 'Relatorios',
-            'icon' => 'far fa-fw fa-file',
+            'text' => 'blog',
+            'url' => 'admin/blog',
+            'can' => 'manage-blog',
+        ],
+
+        [
+            'text' => 'Satisfação',
+            'icon' => 'fas fa-chart-line',
             'submenu' => [
                 [
-                'text' => 'Professores',
-                'url' => 'admin/pages',
-                'icon' => 'far fa-fw fa-file',
-            ],
-            [
-                'text' => 'Agenda',
-                'url' => 'admin/pages',
-                'icon' => 'far fa-fw fa-file',
-            ],
+                    'text' => 'Questionario',
+                    'url' => 'questionario',
+                    'icon' => 'fas fa-clipboard',
+                ]
             ]
-            ],
+        ],
+
         [
-                'text' => 'Configurações',
-                'icon' => 'fa fa-cog',
-                'submenu' => [
-                    [
-                    'text' => 'Cadastro de Professores',
-                    'url' => 'admin/pages',
-                    'icon' => 'far fa-fw fa-file',
+            'text' => 'Cadastro',
+            'icon' => 'fas fa-align-justify',
+            'submenu' => [
+                [
+                    'text' => 'Usuários',
+                    'url' => 'cadastrodeusuario',
+                    'icon' => 'fa fa-user',
                 ],
                 [
-                    'text' => 'Cadastro de Agenda',
-                    'url' => 'admin/pages',
-                    'icon' => 'far fa-fw fa-file',
-                ],
-                ]
-                ],
+                    'text' => 'Pacientes',
+                    'url' => 'cadastropacientes',
+                    'icon' => 'fa fa-users',
 
-        // [
-        //     'text' => 'blog',
-        //     'url' => 'admin/blog',
-        //     'can' => 'manage-blog',
-        // ],
-        // [
-        //     'text' => 'pages',
-        //     'url' => 'admin/pages',
-        //     'icon' => 'far fa-fw fa-file',
-        //     'label' => 4,
-        //     'label_color' => 'success',
-        // ],
-        // ['header' => 'account_settings'],
-        // [
-        //     'text' => 'profile',
-        //     'url' => 'admin/settings',
-        //     'icon' => 'fas fa-fw fa-user',
-        // ],
-        // [
-        //     'text' => 'change_password',
-        //     'url' => 'admin/settings',
-        //     'icon' => 'fas fa-fw fa-lock',
-        // ],
+                ],
+            ],
+        ],
+
+        [
+            'text' => 'account_settings',
+            'icon' => 'fa fa-cog',
+            'submenu' => [
+                [
+                    'text' => 'profile',
+                    'url' => 'admin/settings/profile', // URL para a página de perfil
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+                [
+                    'text' => 'change_password',
+                    'url' => 'admin/settings',
+                    'icon' => 'fas fa-fw fa-lock',
+                ],
+            ],
+        ],
+    ],
+
         // [
         //     'text' => 'multilevel',
         //     'icon' => 'fas fa-fw fa-share',
@@ -420,7 +418,6 @@ return [
         //     'icon_color' => 'cyan',
         //     'url' => '#',
         // ],
-    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -527,6 +524,17 @@ return [
                 ],
             ],
         ],
+        'Font Awesome' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
+                ],
+            ],
+        ],
+
     ],
 
     /*
